@@ -1,0 +1,271 @@
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: lightblue;
+  }
+  
+  #calendarContainer {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 50%;
+  }
+  #nextDayBtn{
+    background-color: #1976d2;
+    color: #fff;
+    flex-basis: calc(50%-10px);
+    /* justify-content: space-between; */
+  }
+  #prevDayBtn {
+    background-color: #1976d2;
+    color: #fff;
+    flex-basis: calc(50%-10px);
+    /* justify-content: space-between; */
+    
+  }
+  
+  #calendar {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 50%;
+    /* check */
+    border-spacing: 20px; 
+    /* check */
+  }
+  .daysRow{
+    border-spacing: 10px;
+  }
+  
+  #calendar thead {
+    background-color: #f0f0f0;
+  }
+  
+  #calendar thead th {
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    color: #555;
+    border: 10px solid lightblue;
+  }
+
+  
+  #calendar tbody td {
+    width: 14%;
+    height: 120px;
+    vertical-align: top;
+    text-align: right;
+    padding: 5px;
+    /* check */
+    border-radius: 5px;
+    /* check */
+    background-color: rgb(224, 224, 221);
+    border: 10px solid lightblue;
+    
+  }
+  
+  #calendar tbody td.empty {
+    background-color: lightblue;
+    border: none;
+    
+  }
+  
+  #calendar tbody td.currentDate {
+    background-color: #e6f7ff;
+  }
+  
+  #headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  #headerContainer h2 {
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .controls {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #1976d2; /* Change to any color of your preference */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10px; /* Add margin to separate buttons */
+  }
+  
+  .controls:hover {
+    background-color: #1565c0; /* A darker shade of the original color for hover effect */
+  }
+  
+  #modalContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    padding: 20px;
+    border-radius: 15px; /* Increase the border-radius for a more rounded look */
+    max-width: 800px;
+    min-width: 50%;
+    z-index: 1000; /* Adjust the z-index to ensure it appears above other elements */
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .event-form-title {
+    text-align: center;
+    margin-bottom: 25px;
+    display: inline-block;
+  }
+  #closeEventBtn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: font-size 0.3s;
+  }
+  #closeEventBtn:hover {
+    font-size: 36px;
+    
+  }
+  #submitBtn {
+    background-color: lightblue;
+    width: 25%;
+    margin-left: auto;
+    border: none;
+    transition: background-color 0.3s;
+  }
+
+  #submitBtn:hover {
+    background-color: rgb(64, 191, 234);
+  }
+
+  #weatherContent {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-basis: 30%;
+  }
+  
+  
+  #dateDisplay {
+    flex-grow: 1;
+    text-align: center;
+  }
+
+/* CSS for Event Table */
+#eventTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+#eventTable th {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: left;
+  font-weight: bold;
+}
+
+#eventTable td {
+  padding: 10px;
+}
+
+#eventTable tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#eventTable tr:hover {
+  background-color: #eaf2ff;
+}
+
+/* Optional: Styling for Day View Title */
+#dayViewTitle {
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+.event-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.event-form input {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+
+/* Apply similar styling to all inputs */
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* If you want to style specific types of inputs differently, you can use attribute selectors */
+input[type="text"] {
+  /* Add specific styles for text inputs here */
+}
+
+input[type="password"] {
+  /* Add specific styles for password inputs here */
+}
+
+/* If you want to style inputs with specific classes or IDs, you can do so like this: */
+input.my-custom-input {
+  /* Add custom styles for inputs with the class "my-custom-input" */
+}
+
+input#my-custom-id {
+  /* Add custom styles for inputs with the ID "my-custom-id" */
+}
+
+button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#closeModalBtn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: font-size 0.3s;
+}
+
+#closeModalBtn:hover{
+  font-size: 36px;
+}
+
